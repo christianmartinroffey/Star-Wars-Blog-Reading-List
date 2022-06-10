@@ -9,7 +9,7 @@ export const Navbar = () => {
 						<img src="https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"></img>
 					</Link>
 					<div className="d-flex">
-						<Link to="/demo">
+						<Link to="/favorites">
 							<button className="btn btn-success m-2">Favourites 	&#8595; </button>
 						</Link>
 						<form class="d-flex">

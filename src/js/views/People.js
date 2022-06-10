@@ -5,17 +5,13 @@ const People = () => {
 
 const [people, setPeople] = useState([]);
 
-useEffect {() =>{
+const text = "some text";
 
-    async function fetchPeople () {
-        let res = 
-    }
-}, []}
-
+// template for now
     return(
         <div className="container d-flex">
             <div className="card bg-light m-2">
-                <p> card image</p>
+                <p> {text} </p>
                 <p>title of the character</p> 
                 <p>gender: value</p>
                 <p>hair color: value</p>

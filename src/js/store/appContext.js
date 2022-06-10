@@ -31,7 +31,15 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
+				async function fetchPeople () {
+					let response = await fetch('https://www.swapi.tech/api/people/?format=json');
+					let data = await response.json();
+				}
+				fetchPeople();
+				console.log();	
 		}, []);
+		//checks in console if there is data being pulled
+			
 
 		// The initial value for the context is not null anymore, but the current state of this component,
 		// the context will now have a getStore, getActions and setStore functions available, because they were declared

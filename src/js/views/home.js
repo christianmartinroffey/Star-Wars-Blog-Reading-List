@@ -1,13 +1,14 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import Characters from "../component/Characters";
-import Planets from "../component/Planets";
+import People from "./People";
+import Planets from "./Planets";
+import Starships from "./Starships";
 
 export const Home = () => (
-	<div>
+	<div className="bg-dark">
 		<People/>
 		<Planets/>
+		<Starships/>
 	</div>
 
 );
