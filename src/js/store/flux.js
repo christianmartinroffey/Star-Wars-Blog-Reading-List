@@ -1,11 +1,9 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, getActions, setStore}) => {
 	return {
 		store: {
-			demo: [
+			favorite: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					name: "Something",
 				},
 				{
 					title: "SECOND",
@@ -16,9 +14,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+
+			addToFavorite: (name) => {
+				const data = this.people.find(item => item.name === name);
+				this.setState({
+				  favorite: [...this.state.name, data]
+				});
+			  },
+
+			deleteFavorite: (name) => {
+				if (window.confirm("Are you sure you want to delete this favorite?")) {
+					setFavorite(favorite.filter(item => item.name !== name ))
+				}
+			},
+			
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
@@ -36,8 +49,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 
 				//reset the global store
-				setStore({ demo: demo });
+				setStore({ favorite: favorite });
 				
+			},
+
+			addToFavorite: () => {
+				onclick
 			}
 			
 		}

@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Planets  from "./views/Planets";
 import Starships  from "./views/Starships";
+import Hello from "./component/Hello.js";
 
 
 
@@ -29,9 +30,12 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="People/:uid">
+						<Route exact path="/people">
 							<People/>
 						</Route>
+						{/* <Route exact path="People/:uid">
+							<People/>
+						</Route> */}
 						<Route exact path="Planets/:uid">
 							<Planets/>
 						</Route>
@@ -44,8 +48,8 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
-						<Route>
-							<h1>Not found!</h1>
+						<Route exact path="/hello">
+							<Hello />
 						</Route>
 					</Switch>
 					<Footer />
