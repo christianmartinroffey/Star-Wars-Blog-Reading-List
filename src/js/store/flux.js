@@ -51,7 +51,7 @@ const getState = ({ getStore, getActions, setStore}) => {
 			console.log(store);
 			},
 
-			addFavorite: (obj) => {
+			addToFavorite: (obj) => {
 				const store = getStore()
 				
 			 	setStore({favorites: [...store.favorites, obj]})

@@ -5,7 +5,7 @@ const Planets = () => {
     const { store, actions } = useContext(Context);
 
     const onClickHandler = () => {
-        actions.addFavorite();
+        actions.addToFavorite();
         
     };
 
