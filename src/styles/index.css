@@ -8,3 +8,13 @@
 .mainlayout{
     width: 100%;
 }
+
+.api-card{
+    width: 32rem;
+    height: 22rem;
+}
+
+.read-more{
+    width: 6rem;
+    height: 2rem;
+}

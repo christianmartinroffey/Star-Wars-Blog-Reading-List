@@ -52,10 +52,6 @@ const getState = ({ getStore, getActions, setStore}) => {
 				setStore({ favorite: favorite });
 				
 			},
-
-			addToFavorite: () => {
-				onclick
-			}
 			
 		}
 	};

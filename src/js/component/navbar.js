@@ -12,8 +12,14 @@ export const Navbar = () => {
 						<img src="https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"></img>
 					</Link>
 					<div className="d-flex">
-						<Link to="/demo">
+						{/* <Link to="/demo">
 							<button className="btn btn-success m-2">Demo page</button>
+						</Link> */}
+						<Link to="/people">
+							<p className=" text-success nav-link">People</p>
+						</Link>
+						<Link to="/planets">
+							<p className="text-success nav-link">Planets</p>
 						</Link>
 						<div class="dropdown d-flex m-2">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

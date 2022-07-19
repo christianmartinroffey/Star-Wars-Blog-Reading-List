@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useContext} from "react";
+// import {Dimmer, Loader} from 'semantic-ui-react';
 
 const People = () => {
     
     const [people, setPeople] = useState([]);
+    const[loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -14,49 +16,31 @@ const People = () => {
         fetchPeople();
     }, []);
 
-    
-    // const goToFavorite = () => {
-        
-    //     const filterPeople = (person, i) => {
-    //         people.forEach( person => {
-                
-    //             return(
-    //                 <li> 
-    //                     <li><a class="dropdown-item" href="#">{person.name}</a></li>
-    //                 </li>    
-    //             );
-    //         })
-    //     };
-    //    window.alert("something")
-    //     filterPeople();
-    // };
-
-
-    // const getThePeople = () => {
-    //     people.filter((person) => person.uid < 5) }
-    //     return person 
-    // };
  
 //check if there is data for people
 console.log(people, "peopledata");
+
+    
     if( people.length === 0 ){
         return <div> </div>
     }
 
     return(
         <>
-            <div className="container d-flex">
+        <div className="container">
+            <div className="card">
                 <div className="min-vw-50 d-flex">
                 {people.map((person, index) => (
-                <div className="card bg-light m-2">
-                    <img className="img-thumbnail" src="https://starwars-visualguide.com/assets/img/placeholder.jpg"/>
+                <div className="card api-card bg-light m-2">
+                    <img className="img-thumbnail" src="https://www.nika-actief.nl/wp-content/uploads/2016/12/400x200.png"/>
                     <p>{person.name}</p>
-                    <p> {person.uid}</p>
-                    <button className="primary"></button>
+                    <p>{person.uid}</p>
+                    <button className="btn btn-primary">Learn More</button>
                 
                 </div>
             ) )}
                 </div>
+            </div>
             </div>
         </>
     )
