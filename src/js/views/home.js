@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect, useState, useContext} from "react";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import People from "./People";
 import Planets from "./Planets";
@@ -6,6 +7,13 @@ import Starships from "./Starships";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const { store, actions } = useContext(Context);
+
+useEffect(() => {
+actions.addToFavorite()
+},[]);
+
+
   return (
     <div className="bg-dark">
       <div className="card bg-light m-2 ">
@@ -22,6 +30,7 @@ export const Home = () => {
           </Link> */}
         {/* </div> */}
       </div>
+      <People/>
       <Planets />
       <Starships />
     </div>
