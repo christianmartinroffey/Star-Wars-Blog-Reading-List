@@ -6,14 +6,18 @@ const Planets = () => {
 
     const onClickHandler = () => {
         actions.addToFavorite();
+        console.log("add to favourite clicked")
         
     };
 
     return(
         <div className="container d-flex">
+            
             <div className="card bg-light m-2">
+            <h2>Planets</h2>
                 <img className="img-thumbnail" src="https://starwars-visualguide.com/assets/img/placeholder.jpg"/>
                 <p>{}</p> 
+                
                 <div className="d-flex">
                     <button className=" btn btn-primary"id="learn-more">learn more</button>
                     <button className="btn" id="favorite" onClick={onClickHandler}><span className="fa fa-heart text-success"></span></button>
