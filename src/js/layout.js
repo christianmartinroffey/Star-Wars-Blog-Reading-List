@@ -9,6 +9,9 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Planets  from "./views/Planets";
 import Starships  from "./views/Starships";
+import PeopleDetails from "./views/PeopleDetails";
+import PlanetDetails from "./views/PlanetDetails";
+import StarshipsDetails from "./views/StarshipsDetails";
 
 
 
@@ -27,13 +30,13 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/people">
+						<Route exact path="/people/:id" component={PeopleDetails}>
 							<People/>
 						</Route>
-						<Route exact path="/planets">
+						<Route exact path="/planets/:id" component={PlanetDetails}>
 							<Planets/>
 						</Route>
-						<Route exact path="/starships">
+						<Route exact path="/starships/:id" component={StarshipsDetails}>
 							<Starships/>
 						</Route>
 					</Switch>

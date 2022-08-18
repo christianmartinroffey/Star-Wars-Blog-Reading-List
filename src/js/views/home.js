@@ -16,20 +16,6 @@ actions.addToFavorite()
 
   return (
     <div className="bg-dark">
-      <div className="card bg-light m-2 ">
-        {/* <img
-          className="img-thumbnail img-fluid"
-          src="https://media.gettyimages.com/photos/american-actors-mark-hamill-carrie-fisher-and-harrison-ford-on-the-picture-id607402182"
-        />
-        <p>Check out all the People</p>
-        <div className="d-flex">
-        <Link to ="/people">					
-          <button className=" btn btn-primary" id="learn-more">
-            Take me there
-          </button>
-          </Link> */}
-        {/* </div> */}
-      </div>
       <People/>
       <Planets />
       <Starships />
