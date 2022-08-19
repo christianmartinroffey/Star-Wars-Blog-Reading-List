@@ -15,10 +15,10 @@ actions.addToFavorite()
 
 
   return (
-    <div className="bg-dark">
-      <People/>
-      <Planets />
-      <Starships />
+    <div className="bg-dark pt-5 container-fluid">
+      <People sectionTitle="People"/>
+      <Planets sectionTitle="Planets"/>
+      <Starships sectionTitle="Starships" />
     </div>
   );
 };

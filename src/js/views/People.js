@@ -3,20 +3,13 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Card from "../component/Card";
 
-const People = (sectionTitle, url) => {
+const People = (url) => {
     const { store, actions } = useContext(Context);
     const people = store.people;
-    console.log(people, "from store in page view");
-   
-
     useEffect(() => {
   
     });
-  
-  
-  // if (store.people.length === 0) {
-  //   return <div> </div>;
-  // }
+
 
   const onClickHandler = (person) => {
     actions.addToFavorite(person);
@@ -25,13 +18,15 @@ const People = (sectionTitle, url) => {
 };
 
   return (
-      <div className="container-fluid">
-        <div className="min-vw-50 d-flex overflow-auto card d-flex" style={{width: "18rem"}}>
-        <h2>{People}</h2>
+    <div className="row">
+      <div className="container d-flex">
+        
+        <div className="overflow-auto card d-flex" style={{width: "18rem"}}>
+        <h2>Characters</h2>
           {people.map((person, index) => (
             <Card
               key={index}
-              sectionTitle={sectionTitle}
+              sectionTitle={"People"}
               url={person.url}
               cardTitle={person.name}
               id={person.uid}
@@ -40,6 +35,7 @@ const People = (sectionTitle, url) => {
             />
           ))}
         </div>
+        </div>
       </div>
   );
 };
@@ -47,8 +43,3 @@ const People = (sectionTitle, url) => {
 export default People;
 
 
-
- {/* <div className="d-flex">
-                    <button className=" btn btn-primary"id="learn-more">learn more</button>
-                    <button className="btn" id="favorite" onClick={onClickHandler}><span className="fa fa-heart text-success"></span></button>
-                </div> */}
