@@ -1,7 +1,6 @@
 const getState = ({ getStore, getActions, setStore}) => {
 	return {
 		store: {
-
 				favorites: [],
 				people: [],
 				planets: [],
@@ -42,11 +41,11 @@ const getState = ({ getStore, getActions, setStore}) => {
 
 			fetch(`https://www.swapi.tech/api/starships/`)
 			.then(response => response.json())
-			.then(data => setStore({planets: data.results}))
+			.then(data => setStore({starships: data.results}))
 			.then(()=> console.log(store))
 			.catch(err => console.error(err.message))
 
-			console.log(store);
+			console.log(store, "starships");
 			},
 
 			// add to favourites

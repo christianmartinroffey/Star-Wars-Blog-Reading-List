@@ -23,10 +23,7 @@ export const Navbar = () => {
 							<li><a className="dropdown-item" href="#">{store.favorites}</a></li>
 						</ul>
 						</div>
-						<form className="d-flex">
-							<input className="form-control m-2" type="search" placeholder="Search" aria-label="Search"></input>
-								<button className="btn btn-outline-success m-2" type="submit">Search</button>
-						</form>
+						
 					</div>
 					
 			</div>

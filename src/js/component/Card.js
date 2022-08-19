@@ -45,7 +45,7 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
     }
 
     return (
-        <div className="card col-6" style={{width: "18rem"}}>
+        <div className="card col-5" style={{width: "18rem"}}>
         <div className="container mb-1">
         <h5 className="card-title">{cardTitle}</h5>
             <img src={imgUrl} className="card-img-top" alt="..." />

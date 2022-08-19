@@ -1,30 +1,40 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import { Context } from "../store/appContext";
+import Card from "../component/Card";
 
-const Planets = () => {
+const Planets = (sectionTitle) => {
     const { store, actions } = useContext(Context);
+    const planets = store.planets;
+   
+    useEffect(() => {
+  
+    });
 
-    const onClickHandler = () => {
-        actions.addToFavorite();
-        console.log("add to favourite clicked")
-        
-    };
+
+  const onClickHandler = (planet) => {
+    actions.addToFavorite(planet);
+    console.log("add to favourite clicked", planet.name)
+  };
 
     return(
-        <div className="container d-flex">
-            
-            <div className="card bg-light m-2">
-            <h2>Planets</h2>
-                <img className="img-thumbnail" src="https://starwars-visualguide.com/assets/img/placeholder.jpg"/>
-                <p>{}</p> 
-                
-                <div className="d-flex">
-                    <button className=" btn btn-primary"id="learn-more">learn more</button>
-                    <button className="btn" id="favorite" onClick={onClickHandler}><span className="fa fa-heart text-success"></span></button>
-                </div>
-            </div>
+
+        <div className="container ">
+        <h2 className="text-white">Planets</h2>
+        <div className="d-flex overflow-auto gap-3" style={{width: "100%"}}>
+          {planets.map((planet, index) => (
+            <Card
+              key={index}
+              sectionTitle={"Planets"}
+              url={planet.url}
+              cardTitle={planet.name}
+              id={planet.uid}
+              imgId={planet.uid}
+             
+            />
+          ))}
+        </div>
         </div>
     )
 };
 
-export default Planets
+export default Planets;
