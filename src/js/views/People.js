@@ -18,11 +18,10 @@ const People = (url) => {
 };
 
   return (
-    <div className="row">
-      <div className="container d-flex">
-        
-        <div className="overflow-auto card d-flex" style={{width: "18rem"}}>
-        <h2>Characters</h2>
+   
+      <div className="container ">
+        <h2 className="text-white">Characters</h2>
+        <div className="d-flex overflow-auto gap-3" style={{width: "100%"}}>
           {people.map((person, index) => (
             <Card
               key={index}
@@ -36,7 +35,7 @@ const People = (url) => {
           ))}
         </div>
         </div>
-      </div>
+
   );
 };
 

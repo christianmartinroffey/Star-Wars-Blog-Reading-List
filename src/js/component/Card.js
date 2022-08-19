@@ -11,26 +11,24 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
     //     if (store.favorites.find(obj => obj.uid == uid) == undefined) setIsActive(false);
     // }, [store.favorites])
 
-    const cardType = sectionTitle;
-
     const imgUrl = (
-        cardType === "People" ?
+        sectionTitle === "People" ?
         `https://starwars-visualguide.com/assets/img/characters/${imgId}.jpg`
         : 
         id === "p-1" ?
         "https://picsum.photos/300/300"
-        : cardType === "Planets" ?
+        : sectionTitle === "Planets" ?
         `https://starwars-visualguide.com/assets/img/planets/${imgId}.jpg`
         :
         `https://starwars-visualguide.com/assets/img/starships/${imgId}.jpg`
     )
     
     const routerLink = (
-        cardType === "People" ?
+        sectionTitle === "People" ?
         `/people/${id}`
-        : cardType === "Planets" ?
+        : sectionTitle === "Planets" ?
         `/planets/${id}`
-        : cardType === "Starships" ?
+        : sectionTitle === "Starships" ?
         `/starships/${id}`
         : <></>
     );
@@ -47,11 +45,11 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
     }
 
     return (
-        <>
-        <div className="card col-3" style={{width: "20rem"}}>
+        <div className="card col-6" style={{width: "18rem"}}>
+        <div className="container mb-1">
+        <h5 className="card-title">{cardTitle}</h5>
             <img src={imgUrl} className="card-img-top" alt="..." />
             <div className="card-body">
-                <h5 className="card-title">{cardTitle}</h5>
                 <div className="d-flex">
                 <Link to={routerLink}>
                     <button className="btn btn-outline-primary">Learn more!</button>
@@ -61,8 +59,7 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
                 </div>
             </div>
         </div>
-        <br/>
-        </>
+        </div>
     )
 }
 
