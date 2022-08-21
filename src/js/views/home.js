@@ -9,11 +9,6 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
-useEffect(() => {
-actions.addToFavorite()
-},[]);
-
-
   return (
     <div className="bg-dark pt-5">
       <People sectionTitle="People"/>

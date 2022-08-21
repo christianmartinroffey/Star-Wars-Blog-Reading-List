@@ -45,23 +45,25 @@ const getState = ({ getStore, getActions, setStore}) => {
 			.then(()=> console.log(store))
 			.catch(err => console.error(err.message))
 
-			console.log(store, "starships");
 			},
 
 			// add to favourites
-			addToFavorite: (obj) => {
+			addToFavorites: (obj, id) => {
 				const store = getStore()
-				
-			 	setStore({favorites: [...store.favorites, obj]})
+				const storedFavorites = store.favorites;
+			 	setStore({
+					favorites: [...store.favorites, obj]
+				});
+				console.log(storedFavorites, "current favorites");
 				
 			},
 
 			// remove from favorites
-			removeFavorite: (e) => {
+			removeFavorite: (e, id) => {
 				const store = getStore();
 
-				const newFavorites = store.favorites.filter((x)=>{
-					return e.target.id !== x.id
+				const newFavorites = store.favorites.filter((obj)=>{
+					return e.target.id !== obj.id
 				})
 
 				setStore({favorites: newFavorites})

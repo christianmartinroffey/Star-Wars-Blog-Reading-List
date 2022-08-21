@@ -6,26 +6,16 @@ import Card from "../component/Card";
 const People = (url) => {
     const { store, actions } = useContext(Context);
     const people = store.people;
-    useEffect(() => {
-  
-    });
-
-
-  const onClickHandler = (person) => {
-    actions.addToFavorite(person);
-    console.log("add to favourite clicked", person.name)
-    
-};
+    const sectionTitle = "People";
 
   return (
-   
-      <div className="container ">
-        <h2 className="text-white">Characters</h2>
+      <div className="container pb-5 ">
+        <h2 className="text-white">{sectionTitle}</h2>
         <div className="d-flex overflow-auto gap-3" style={{width: "100%"}}>
           {people.map((person, index) => (
             <Card
               key={index}
-              sectionTitle={"People"}
+              sectionTitle={sectionTitle}
               url={person.url}
               cardTitle={person.name}
               id={person.uid}
