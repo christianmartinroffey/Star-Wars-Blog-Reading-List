@@ -58,7 +58,7 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
                 <Link to={routerLink}>
                     <button className="btn btn-outline-primary">Learn more!</button>
                 </Link>
-                <button name={id} disabled={isActive == true} className={`btn ms-auto ${isActive ? "active" : ""}`} onClick={setIsActiveHandler}><span className="fa fa-heart text-success"></span>
+                <button name={id} disabled={isActive == true} className={`btn ms-auto ${isActive ? "active" : ""}`} onClick={setIsActiveHandler}><span className={`fa fa-heart ${isActive ? "text-transparent" : "text-success"}`}></span>
                 </button>
                 </div>
             </div>
