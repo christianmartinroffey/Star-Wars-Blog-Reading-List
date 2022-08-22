@@ -59,16 +59,28 @@ const getState = ({ getStore, getActions, setStore}) => {
 			},
 
 			// remove from favorites
-			removeFavorite: (e, id) => {
-				const store = getStore();
 
+			// setStore(favourites.filter((favorite) => favorite.id === favorite.id))
+			removeFavoriteFromDropdown: (e) => {
+				const store = getStore();
 				const newFavorites = store.favorites.filter((obj)=>{
-					return e.target.id !== obj.id
+					return e.target.value !== obj
+					
 				})
+				console.log(e, "remove function")
 
 				setStore({favorites: newFavorites})
 			},
 		
+			removeFavorite: (cardTitle, id) => {
+				const store = getStore();
+				const newFavorites = store.favorites.filter((obj, id) =>{
+					if (obj.id !== id )
+					return newFavorites;
+				})
+
+				setStore({favorites: newFavorites})
+			}
 			
 		}
 	};

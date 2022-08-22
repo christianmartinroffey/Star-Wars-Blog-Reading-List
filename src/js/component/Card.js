@@ -9,7 +9,7 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
     const [isActive, setIsActive] = useState(false)
 
     // useEffect(() => {
-    //     if (store.favorites.find(obj => obj.uid == uid) == undefined) setIsActive(false);
+    //     if (store.favorites.find(obj => obj.id == id) == undefined) setIsActive(false);
     // }, [store.favorites])
 
     const imgUrl = (
@@ -41,11 +41,17 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
     //     }
     
 
-    const setIsActiveHandler = () => {
-            setIsActive(true)
-            actions.addToFavorites(cardTitle, id)
-            console.log("add to favorite button clicked", cardTitle, id)
-      
+    const onClickHandler = (e) => {
+           if (isActive == false){
+
+           actions.addToFavorites(cardTitle, id);
+           setIsActive(true);
+        }
+        else {
+            actions.removeFavorite(cardTitle, id);
+            setIsActive(false);
+            console.log(favorites, "after delete click")
+        }
     }
 
     return (
@@ -58,7 +64,7 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
                 <Link to={routerLink}>
                     <button className="btn btn-outline-primary">Learn more!</button>
                 </Link>
-                <button name={id} disabled={isActive == true} className={`btn ms-auto ${isActive ? "active" : ""}`} onClick={setIsActiveHandler}><span className={`fa fa-heart ${isActive ? "text-transparent" : "text-success"}`}></span>
+                <button name={id}  className={`btn ms-auto ${isActive ? "active" : ""}`} onClick={onClickHandler}><span className={`fa fa-heart ${isActive ? "active" : "text-success"}`}></span>
                 </button>
                 </div>
             </div>

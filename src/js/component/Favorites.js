@@ -4,20 +4,22 @@ import { Context } from "../store/appContext";
 function Favorites() {
     const { store, actions } = useContext(Context);
     const favorites = store.favorites
-	  console.log(store.favorites, "stored in the favourites dropdown");
+	  
     const [active, isActive] = useState();
-    const cardTitle = store.favorites;
+   
     
-    const handleDelete = () => {
-      console.log("delete clicked", cardTitle)
+    const handleDelete = (value) => {
+      console.log("delete clicked", favorites);
+      actions.removeFavoriteFromDropdown(value)
   }
+
 
   return (
     <div>
         {!favorites ? "Add a favorite" :
-		favorites.map((favorite) => 
+		favorites.map((favorite, id) => 
 		        <li className="d-flex text-center"><a className="dropdown-item" href="/">{favorite}</a>
-            <button value={cardTitle} className={`btn ms-auto ${isActive ? "" : ""}`} onClick={handleDelete}><span className="fa fa-minus-circle text-danger"></span>
+            <button value={favorite} className={`btn ms-auto ${isActive ? "" : ""}`} onClick={handleDelete}><span className="fa fa-minus-circle text-danger"></span>
                 </button>
             </li>
 						)}
