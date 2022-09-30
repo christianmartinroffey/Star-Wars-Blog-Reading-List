@@ -58,6 +58,7 @@ const getState = ({ getStore, getActions, setStore}) => {
 				
 			},
 
+
 			// remove from favorites
 
 			// setStore(favourites.filter((favorite) => favorite.id === favorite.id))
@@ -81,6 +82,7 @@ const getState = ({ getStore, getActions, setStore}) => {
 
 				setStore({favorites: newFavorites})
 			}
+
 			
 		}
 	};
