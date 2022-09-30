@@ -1,21 +1,42 @@
-import React from 'react'
+import React, {useEffect, useState, useContext} from "react";
+import { Context } from "../store/appContext";
+import Card from "../component/Card";
 
 function Starships() {
-  return (
-    <div className="container d-flex">
-            <div className="card bg-light m-2">
-            <img className="img-thumbnail" src="https://starwars-visualguide.com/assets/img/placeholder.jpg"/>
-                <p>title of the character</p> 
-                <p>gender: value</p>
-                <p>hair color: value</p>
-                <p>eye color: value</p> 
-                <div className="d-flex">
-                    <button className=" btn btn-primary"id="learn-more">learn more</button>
-                    <button className="btn" id="favorite"><span className="fa fa-heart text-success"></span></button>
-                </div>
-            </div>
-        </div>
-  )
-}
+  const { store, actions } = useContext(Context);
+  const starships = store.starships;
+  useEffect(() => {
 
+  });
+
+
+const onClickHandler = (starship) => {
+  actions.addToFavorite(starship);
+  console.log("add to favourite clicked", starship.name)
+  
+};
+
+return (
+ 
+    <div className="container ">
+      <h2 className="text-white">Starships</h2>
+      <div className="d-flex overflow-auto gap-3" style={{width: "100%"}}>
+        {starships.map((starship, index) => (
+          <Card
+            key={index}
+            sectionTitle={"Starships"}
+            url={starship.url}
+            cardTitle={starship.name}
+            id={starship.uid}
+            imgId={starship.uid}
+           
+          />
+        ))}
+      </div>
+      </div>
+
+);
+};
+
+{/* <img className="img-thumbnail" src="https://starwars-visualguide.com/assets/img/placeholder.jpg"/> */}
 export default Starships

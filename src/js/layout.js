@@ -3,15 +3,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home }  from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import People from "./views/People";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Planets  from "./views/Planets";
 import Starships  from "./views/Starships";
-import Hello from "./component/Hello.js";
+import PersonPage from "./views/PersonPage";
+import PlanetDetails from "./views/PlanetDetails";
+import StarshipsDetails from "./views/StarshipsDetails";
 
 
 
@@ -30,29 +30,15 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/people">
-							<People/>
+						<Route exact path="/people/:id" element={PersonPage}>
+							<PersonPage/>
 						</Route>
-						{/* <Route exact path="People/:uid">
-							<People/>
-						</Route> */}
-						<Route exact path="/planets">
+						<Route exact path="/planets/:id" element={PlanetDetails}>
+
 							<Planets/>
 						</Route>
-						<Route exact path="Planets/:uid">
-							<Planets/>
-						</Route>
-						<Route exact path="Starships/:uid">
+						<Route exact path="/starships/:id" component={StarshipsDetails}>
 							<Starships/>
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route exact path="/hello">
-							<Hello />
 						</Route>
 					</Switch>
 					<Footer />

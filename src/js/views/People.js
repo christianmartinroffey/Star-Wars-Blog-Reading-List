@@ -1,57 +1,36 @@
-import React, {useState, useEffect, useContext} from "react";
-// import {Dimmer, Loader} from 'semantic-ui-react';
 
-const People = () => {
-    
-    const [people, setPeople] = useState([]);
-    const[loading, setLoading] = useState(true);
+import React, {useEffect, useState, useContext} from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import Card from "../component/Card";
 
-    useEffect(() => {
+const People = (url) => {
+    const { store, actions } = useContext(Context);
+    const people = store.people;
+    const sectionTitle = "People";
 
-        async function fetchPeople () {
-            let response = await fetch('https://www.swapi.tech/api/people/?format=json');
-            let data = await response.json();
-            setPeople(data.results); 
-        }
-        fetchPeople();
-    }, []);
+  return (
+      <div className="container pb-5 ">
+        <h2 className="text-white">{sectionTitle}</h2>
+        <div className="d-flex overflow-auto gap-3" style={{width: "100%"}}>
+          {people.map((person, index) => (
+            <Card
+              key={index}
+              sectionTitle={sectionTitle}
+              url={person.url}
+              cardTitle={person.name}
+              id={person.uid}
+              imgId={person.uid}
+             
+            />
+          ))}
+        </div>
+        </div>
 
- 
-//check if there is data for people
-console.log(people, "peopledata");
+  );
 
-    
-    if( people.length === 0 ){
-        return <div> </div>
-    }
-
-    return(
-        <>
-        <div className="container">
-            <div className="card">
-                <div className="min-vw-50 d-flex">
-                {people.map((person, index) => (
-                <div className="card api-card bg-light m-2">
-                    <img className="img-thumbnail" src="https://www.nika-actief.nl/wp-content/uploads/2016/12/400x200.png"/>
-                    <p>{person.name}</p>
-                    <p>{person.uid}</p>
-                    <button className="btn btn-primary">Learn More</button>
-                
-                </div>
-            ) )}
-                </div>
-            </div>
-            </div>
-        </>
-    )
 };
 
 export default People;
 
 
-{/* <img className="img-thumbnail" src="https://starwars-visualguide.com/assets/img/placeholder.jpg"/>
-                <p>{person.name}</p>  
-                <div className="d-flex">
-                    <button className=" btn btn-primary"id="learn-more">learn more</button>
-                    <button onClick={goToFavorite} className="btn" id="favorite"><span className="fa fa-heart text-success"></span></button>
-                </div> */}
