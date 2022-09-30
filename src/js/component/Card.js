@@ -48,9 +48,9 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
            setIsActive(true);
         }
         else {
-            actions.removeFavorite(cardTitle, id);
+            actions.removeFavoriteFromButton(cardTitle, id);
             setIsActive(false);
-            console.log(favorites, "after delete click")
+            console.log(favorites, "after delete click using button")
         }
     }
 
@@ -64,7 +64,7 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
                 <Link to={routerLink}>
                     <button className="btn btn-outline-primary">Learn more!</button>
                 </Link>
-                <button name={id}  className={`btn ms-auto ${isActive ? "active" : ""}`} onClick={onClickHandler}><span className={`fa fa-heart ${isActive ? "active" : "text-success"}`}></span>
+                <button name={id} className="btn" onClick={onClickHandler}><span className="fa fa-heart"></span>
                 </button>
                 </div>
             </div>
@@ -74,3 +74,5 @@ function Card({sectionTitle, cardTitle, id, imgId}) {
 }
 
 export default Card
+
+{/* <button name={id}  className={`btn ms-auto ${isActive ? "active" : ""}`} onClick={onClickHandler}><span className={`fa fa-heart ${isActive ? "active" : "text-success"}`}></span> */}
