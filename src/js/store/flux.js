@@ -73,16 +73,17 @@ const getState = ({ getStore, getActions, setStore}) => {
 				setStore({favorites: newFavorites})
 			},
 		
-			removeFavorite: (cardTitle, id) => {
-				const store = getStore();
-				const newFavorites = store.favorites.filter((obj, id) =>{
-					if (obj.id !== id )
-					return newFavorites;
-				})
+			// removeFavoriteFromButton: (cardTitle, id) => {
+			// 	const store = getStore();
+			// 	const newFavorites = store.favorites.filter((obj, id) =>{
+			// 		if (obj.id !== id )
+			// 		return newFavorites;
+			// 		console.log(newFavorites, "favorites after removing one")
+			// 	})
 
-				setStore({favorites: newFavorites})
-			}
 
+			// 	setStore({favorites: newFavorites})
+			// }
 			
 		}
 	};

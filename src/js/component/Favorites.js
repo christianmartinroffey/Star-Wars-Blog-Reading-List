@@ -16,7 +16,7 @@ function Favorites() {
 
   return (
     <div>
-        {!favorites ? "Add a favorite" :
+        {!favorites.length ? (<p>Add a favorite</p>) :
 		favorites.map((favorite, id) => 
 		        <li className="d-flex text-center"><a className="dropdown-item" href="/">{favorite}</a>
             <button value={favorite} className={`btn ms-auto ${isActive ? "" : ""}`} onClick={handleDelete}><span className="fa fa-minus-circle text-danger"></span>
