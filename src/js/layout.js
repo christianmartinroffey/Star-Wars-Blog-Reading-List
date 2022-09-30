@@ -34,6 +34,7 @@ const Layout = () => {
 							<PersonPage/>
 						</Route>
 						<Route exact path="/planets/:id" element={PlanetDetails}>
+
 							<Planets/>
 						</Route>
 						<Route exact path="/starships/:id" component={StarshipsDetails}>
