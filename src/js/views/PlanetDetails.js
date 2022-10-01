@@ -41,10 +41,22 @@ function PlanetDetails() {
         <div>
           <p> Name: {details.name}</p>
           <p> ID: {details.uid}</p>
-          <p> Height: {details.height}</p>
+          {/* <p> Height: {details.height}</p>
           <p> Mass: {details.mass}</p>
-          <p> Hair Color: {details.hair_color}</p>
+          <p> Hair Color: {details.hair_color}</p> */}
         </div>
+// details from API below
+// id = db.Column(db.Integer, primary_key=True)
+// name = db.Column(db.String(150), unique=True)
+// height = db.Column(db.Integer)
+// mass = db.Column(db.Integer)
+// hair_color = db.Column(db.String(250))
+// skin_color = db.Column(db.String(250))
+// eye_color = db.Column(db.String(250))
+// year_of_birth = db.Column(db.String(250))
+// gender = db.Column(db.String(250))
+// uid = db.Column(db.String(50))
+// children = db.relationship('Favorite', lazy=True
     )
     }
   
@@ -59,12 +71,3 @@ function PlanetDetails() {
 // ))}
 
 export default PlanetDetails
-// import React from 'react'
-
-// 
-//   return (
-//     <div>PlanetDetails</div>
-//   )
-// }
-
-// 
