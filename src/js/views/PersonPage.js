@@ -37,6 +37,7 @@ function PersonPage() {
     <div>
       <p>Link to URL <a href={personURL}>here</a></p>
     
+    { details == undefined ? ("...loading") : (
         <div>
           <p> Name: {details.name}</p>
           <p> ID: {details.uid}</p>
@@ -44,9 +45,12 @@ function PersonPage() {
           <p> Mass: {details.mass}</p>
           <p> Hair Color: {details.hair_color}</p>
         </div>
-  
-       
+    )
+    }
       <p> The individual person's info</p> 
+<Link to="/">
+      <button className="btn btn-primary">Go back to the homepage</button> 
+      </Link>
     </div>
   )
 }
