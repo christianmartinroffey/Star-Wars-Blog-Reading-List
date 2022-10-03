@@ -6,7 +6,6 @@ function PlanetDetails() {
   const {store, actions} = useContext(Context);
   const params = useParams();
   const numberForImg = params.id;
-  console.log(numberForImg, "params number")
   const planets = store.planets;
   const [details, setDetails] = useState();
   
@@ -34,16 +33,16 @@ useEffect(() => {
 });
 
   return (
-    <div>
-          <p> The individual planet's info</p> 
-          <img src={`https://starwars-visualguide.com/assets/img/planets/${numberForImg}.jpg`} style={{width:50, height:50}}></img>
+    <div className="container p-3">
+          <h1> The individual planet's info</h1> 
       <p>Link to URL <a href={planetURL}>here</a></p>
-    
+      <div className="row pb-5">
+      <img className="col-6 card" src={`https://starwars-visualguide.com/assets/img/planets/${numberForImg}.jpg`} ></img>
+      <div className="col-6">
     { details == undefined ? (<div><p> ...loading</p> <br/></div>) : (
         <div>
        
           <p>Name: {details.name}</p>
-          <p>ID: {details.uid}</p>
           <p>Diameter: {details.diameter}</p>
           <p>Rotation Period: {details.rotation_period}</p>
           <p>Orbital Period : {details.orbital_period}</p>
@@ -57,6 +56,8 @@ useEffect(() => {
 
     )
     }
+    </div>
+    </div>
   
 <Link to="/">
       <button className="btn btn-primary">Go back to the homepage</button> 

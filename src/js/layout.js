@@ -37,8 +37,8 @@ const Layout = () => {
 
 							<PlanetDetails/>
 						</Route>
-						<Route exact path="/starships/:id" component={StarshipsDetails}>
-							<Starships/>
+						<Route exact path="/starships/:id" element={StarshipsDetails}>
+							<StarshipsDetails/>
 						</Route>
 					</Switch>
 					<Footer />
