@@ -5,9 +5,12 @@ import { Context } from "../store/appContext";
 function PlanetDetails() {
   const {store, actions} = useContext(Context);
   const params = useParams();
+  const numberForImg = params.id;
+  console.log(numberForImg, "params number")
   const planets = store.planets;
   const [details, setDetails] = useState();
   
+
   const planet = planets.filter(planet => planet.uid == params.id)
     console.log(planet, 'planet obj');
 
@@ -16,7 +19,7 @@ function PlanetDetails() {
     console.log(planetURL, URLToString, "planet's URL");
     
   
-// useEffect(() => {
+useEffect(() => {
      
   fetch(URLToString, {
     headers: {
@@ -28,23 +31,28 @@ function PlanetDetails() {
       .then(data => setDetails(data.result.properties))
       .then(console.log(details, "planet details"));
 
-// });
-
+});
 
   return (
     <div>
           <p> The individual planet's info</p> 
-
+          <img src={`https://starwars-visualguide.com/assets/img/planets/${numberForImg}.jpg`} style={{width:50, height:50}}></img>
       <p>Link to URL <a href={planetURL}>here</a></p>
     
-    { details == undefined ? ("...loading") : (
+    { details == undefined ? (<div><p> ...loading</p> <br/></div>) : (
         <div>
-          <p> Name: {details.name}</p>
-          <p> ID: {details.uid}</p>
-          <p>About: {details.diameter}</p>
-          {/* <p> Height: {details.height}</p>
-          <p> Mass: {details.mass}</p>
-          <p> Hair Color: {details.hair_color}</p> */}
+       
+          <p>Name: {details.name}</p>
+          <p>ID: {details.uid}</p>
+          <p>Diameter: {details.diameter}</p>
+          <p>Rotation Period: {details.rotation_period}</p>
+          <p>Orbital Period : {details.orbital_period}</p>
+          <p>Population: {details.population}</p>
+          <p>Gravity: {details.gravity}</p>
+          <p>Climate: {details.climate}</p>
+          <p>Terrain: {details.terrain}</p>
+          <p>Surface Water: {details.surface_water}</p>
+          <p>Gravity: {details.gravity}</p>
         </div>
 
     )
@@ -57,17 +65,5 @@ function PlanetDetails() {
   )
 }
 
-// "diameter": "12500",
-//       "rotation_period": "24",
-//       "orbital_period": "364",
-//       "gravity": "1 standard",
-//       "population": "2000000000",
-//       "climate": "temperate",
-//       "terrain": "grasslands, mountains",
-//       "surface_water": "40",
-//       "created": "2022-10-02T20:53:01.267Z",
-//       "edited": "2022-10-02T20:53:01.267Z",
-//       "name": "Alderaan",
-//       "url": "https://www.swapi.tech/api/planets/2"
 
 export default PlanetDetails
