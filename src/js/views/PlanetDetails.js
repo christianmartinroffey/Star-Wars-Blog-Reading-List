@@ -41,22 +41,12 @@ function PlanetDetails() {
         <div>
           <p> Name: {details.name}</p>
           <p> ID: {details.uid}</p>
+          <p>About: {details.diameter}</p>
           {/* <p> Height: {details.height}</p>
           <p> Mass: {details.mass}</p>
           <p> Hair Color: {details.hair_color}</p> */}
         </div>
-// details from API below
-// id = db.Column(db.Integer, primary_key=True)
-// name = db.Column(db.String(150), unique=True)
-// height = db.Column(db.Integer)
-// mass = db.Column(db.Integer)
-// hair_color = db.Column(db.String(250))
-// skin_color = db.Column(db.String(250))
-// eye_color = db.Column(db.String(250))
-// year_of_birth = db.Column(db.String(250))
-// gender = db.Column(db.String(250))
-// uid = db.Column(db.String(50))
-// children = db.relationship('Favorite', lazy=True
+
     )
     }
   
@@ -67,7 +57,17 @@ function PlanetDetails() {
   )
 }
 
-// 
-// ))}
+// "diameter": "12500",
+//       "rotation_period": "24",
+//       "orbital_period": "364",
+//       "gravity": "1 standard",
+//       "population": "2000000000",
+//       "climate": "temperate",
+//       "terrain": "grasslands, mountains",
+//       "surface_water": "40",
+//       "created": "2022-10-02T20:53:01.267Z",
+//       "edited": "2022-10-02T20:53:01.267Z",
+//       "name": "Alderaan",
+//       "url": "https://www.swapi.tech/api/planets/2"
 
 export default PlanetDetails
