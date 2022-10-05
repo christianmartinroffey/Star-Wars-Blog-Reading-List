@@ -2,24 +2,21 @@ import React, {useEffect, useState, useContext} from "react";
 import { Context } from "../store/appContext";
 import Card from "../component/Card";
 
-const Planets = (sectionTitle) => {
+const Planets = (url) => {
     const { store, actions } = useContext(Context);
     const planets = store.planets;
    
-    useEffect(() => {
-  
-    });
+    const sectionTitle = "Planets";
 
-
-  const onClickHandler = (planet) => {
-    actions.addToFavorite(planet);
-    console.log("add to favourite clicked", planet.name)
-  };
+  // const onClickHandler = (planet) => {
+  //   actions.addToFavorite(planet);
+  //   console.log("add to favourite clicked", planet.name)
+  // };
 
     return(
 
         <div className="container ">
-        <h2 className="text-white">Planets</h2>
+        <h2 className="text-white">{sectionTitle}</h2>
         <div className="d-flex overflow-auto gap-3" style={{width: "100%"}}>
           {planets.map((planet, index) => (
             <Card

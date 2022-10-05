@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 
 function PersonPage() {
   const params = useParams();
-  console.log(params.id, "params");
+  const numberForImg = params.id;
   const {store, actions} = useContext(Context);
   const people = store.people;
   const [details, setDetails] = useState();
@@ -34,20 +34,28 @@ function PersonPage() {
 
 
   return (
-    <div>
+    <div className="container p-3">
+      <h1> The individual person's info</h1> 
       <p>Link to URL <a href={personURL}>here</a></p>
-    
+      <div className="row pb-5">
+      <img className="col-6 card" src={`https://starwars-visualguide.com/assets/img/characters/${numberForImg}.jpg`} ></img>
+  <div className="col-6">
+    { details == undefined ? ("...loading") : (
         <div>
           <p> Name: {details.name}</p>
-          <p> ID: {details.uid}</p>
           <p> Height: {details.height}</p>
           <p> Mass: {details.mass}</p>
           <p> Hair Color: {details.hair_color}</p>
         </div>
-  
-       
-      <p> The individual person's info</p> 
+    )
+    }
+      </div>
+      </div>
+<Link to="/">
+      <button className="btn btn-primary">Go back to the homepage</button> 
+      </Link>
     </div>
+
   )
 }
 
